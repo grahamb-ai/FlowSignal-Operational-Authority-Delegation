@@ -250,7 +250,12 @@
         <div>
           <div class="scenario-kicker" id="kicker">Scenario 1 · Within Authority</div>
           <div class="scenario-title" id="scenarioTitle">Can a manager approve this supplier contract without going back to the founder?</div>
-          <div class="scenario-copy" id="scenarioCopy">ScaleTech Ltd is growing quickly. The founder wants managers to make more decisions, but only when authority, budget, policy and risk conditions still permit execution.</div>
+          <div class="scenario-copy" id="scenarioCopy">
+<div style="margin-top:10px;padding:10px;border:1px solid rgba(255,255,255,.15);border-radius:8px;">
+<strong>Founder & CEO:</strong> Sarah Johnson<br>
+<strong>Operations Manager:</strong> David Smith
+</div>
+ScaleTech Ltd is growing quickly. Founder Sarah Johnson wants managers to make decisions without becoming a bottleneck. The founder wants managers to make more decisions, but only when authority, budget, policy and risk conditions still permit execution.</div>
 
           <div class="flow" aria-label="FlowSignal runtime sequence">
             <div class="flow-step"><span>01</span><strong>Business action requested</strong></div>
@@ -423,7 +428,7 @@
       }[state.scenario];
 
       const copy = {
-        within: 'ScaleTech Ltd is growing quickly. The founder wants managers to make more decisions, but only when authority, budget, policy and risk conditions still permit execution.',
+        within: 'ScaleTech Ltd is growing quickly. Founder Sarah Johnson wants managers to make decisions without becoming a bottleneck. The founder wants managers to make more decisions, but only when authority, budget, policy and risk conditions still permit execution.',
         threshold: 'FlowSignal™ preserves growth by routing the action to the correct authority holder instead of allowing silent overreach.',
         exception: 'Authority alone is insufficient. Vendor status, risk rating and operating context must still support execution.',
         invalid: 'Historical permission is not enough. FlowSignal™ checks whether authority still exists at the exact moment consequence forms.'
@@ -503,5 +508,12 @@
     syncInputs();
     render();
   </script>
+
+<div style="margin-top:12px;padding:12px;border:1px solid rgba(255,255,255,.15);border-radius:8px;">
+<h4>Growth Impact</h4>
+<div><strong>Before FlowSignal™</strong>: 48 hour approvals | 87 founder interventions/month</div>
+<div><strong>With FlowSignal™</strong>: 4 minute approvals | 12 founder interventions/month</div>
+</div>
+
 </body>
 </html>
