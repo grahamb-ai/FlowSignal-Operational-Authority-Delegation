@@ -1,278 +1,360 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>FlowSignal™ Recruitment Authority & Admissibility</title>
-  <style>
-    :root{
-      --bg:#06111f; --panel:#101c2b; --line:#2b3b4f; --text:#f4f8ff; --muted:#9fb3ca;
-      --teal:#22d3c6; --green:#42e88b; --amber:#ffcc66; --red:#ff5d6c; --blue:#5fb5ff; --shadow:0 18px 45px rgba(0,0,0,.35);
-    }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:radial-gradient(circle at top left,rgba(34,211,198,.18),transparent 30%),linear-gradient(180deg,#050b14 0%,var(--bg) 100%);color:var(--text)}
-    .wrap{max-width:1320px;margin:0 auto;padding:26px}
-    header{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;margin-bottom:20px}
-    .brand{display:flex;gap:14px;align-items:center}
-    .logo{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(34,211,198,.55);background:rgba(34,211,198,.08);box-shadow:0 0 28px rgba(34,211,198,.15);flex:none}
-    .logo:before{content:"";width:21px;height:21px;border-radius:50%;border:3px solid var(--teal);border-left-color:transparent;transform:rotate(-35deg);display:block}
-    h1{margin:0;font-size:35px;line-height:1.02;letter-spacing:-.04em}
-    .subtitle{margin-top:8px;color:#b8c9dc;font-size:14px;max-width:830px;line-height:1.4}
-    .badge{border:1px solid rgba(34,211,198,.5);color:#dcfffb;background:rgba(34,211,198,.08);padding:10px 16px;border-radius:999px;font-weight:900;font-size:12px;white-space:nowrap}
-    .topline{display:grid;grid-template-columns:1.12fr .88fr;gap:18px}
-    .card{background:linear-gradient(180deg,rgba(20,34,53,.96),rgba(12,24,39,.96));border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:20px}
-    .label{color:#9fd7ff;text-transform:uppercase;font-weight:1000;font-size:12px;letter-spacing:.13em;margin-bottom:10px}
-    .scenario-title{font-size:34px;line-height:1.04;margin:0 0 12px;letter-spacing:-.04em}
-    p{color:#c0d2e7;line-height:1.45;margin:0 0 12px}
-    .company{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0}
-    .mini{padding:14px;border:1px solid var(--line);border-radius:12px;background:#0c1929;min-height:78px}
-    .mini .k{font-size:11px;color:#a9bdd4;margin-bottom:6px}.mini .v{font-size:18px;font-weight:1000}
-    .splitline{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
-    .question{padding:16px;border-radius:14px;background:#0e1d2e;border:1px solid #31445a}
-    .question strong{font-size:16px}.question span{display:block;color:#a9bdd4;font-size:12px;margin-top:6px;line-height:1.35}
-    .flow{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:14px}
-    .flow div{border:1px solid #31445a;background:#0d1b2b;border-radius:12px;padding:12px;min-height:78px}
-    .flow span{display:block;color:#6fbfff;font-weight:1000;font-size:11px;margin-bottom:6px}.flow strong{font-size:12px;line-height:1.18;display:block}
-    .decision{margin-top:24px;border:1px solid #385169;border-radius:16px;background:#132132;padding:20px;position:relative;overflow:hidden}
-    .decision small{display:block;color:#9fd7ff;font-weight:1000;text-transform:uppercase;letter-spacing:.12em}
-    .outcome{font-size:64px;font-weight:1000;line-height:1;margin:8px 0;letter-spacing:-.05em}
-    .allow{color:var(--green)}.escalate{color:var(--amber)}.refuse{color:var(--red)}
-    .controls{display:grid;gap:12px}.groupTitle{margin-top:8px;font-size:12px;color:#a7bfd9;font-weight:1000;text-transform:uppercase;letter-spacing:.11em}
-    button{width:100%;text-align:left;border:1px solid #35485f;background:#172435;color:var(--text);border-radius:12px;padding:13px 14px;cursor:pointer;font-weight:1000;transition:.15s}
-    button small{display:block;color:#b7c9dd;font-weight:600;margin-top:4px;line-height:1.3}
-    button:hover{border-color:#6085aa;transform:translateY(-1px)}button.active{border-color:var(--teal);background:rgba(34,211,198,.1)}
-    .manual{margin-top:14px;display:grid;gap:12px}.field{border:1px solid #34475e;background:#101d2d;border-radius:12px;padding:13px}.field label{display:block;font-weight:900;margin-bottom:9px}.sliderRow{display:flex;align-items:center;gap:14px}input[type=range]{width:100%;accent-color:var(--teal)}
-    select{width:100%;background:#0a1726;color:white;border:1px solid #3b536d;border-radius:10px;padding:10px;font-weight:800}
-    .toggle{display:flex;justify-content:space-between;align-items:center;gap:14px;border:1px solid #34475e;background:#101d2d;border-radius:12px;padding:13px}
-    .toggle .hint{display:block;color:#a9bdd4;font-size:12px;margin-top:4px}.switch{width:46px;height:24px;border-radius:99px;background:#21354c;padding:3px;cursor:pointer;flex:none}.switch i{display:block;width:18px;height:18px;border-radius:50%;background:white;transition:.2s}.switch.on{background:#19c7da}.switch.on i{transform:translateX(22px)}
-    .lower{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}.checks{display:grid;gap:10px}
-    .check{display:flex;justify-content:space-between;gap:12px;align-items:center;border:1px solid #31445a;background:#0d1b2b;border-radius:12px;padding:12px}
-    .check strong{font-size:13px}.check span{display:block;color:#b7c9dd;font-size:12px;margin-top:3px;line-height:1.3}
-    .pill{font-size:11px;font-weight:1000;border-radius:999px;padding:7px 9px;color:white;min-width:62px;text-align:center}
-    .pass{background:#2c8d68}.fail{background:#a43f4d}.warn{background:#b58124}.info{background:#386b9f}
-    pre{white-space:pre-wrap;margin:0;max-height:410px;overflow:auto;background:#07111d;border:1px solid #26374b;border-radius:12px;padding:16px;color:#dcefff;font-size:12px;line-height:1.45}
-    .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.kpi{background:#101d2d;border:1px solid #34475e;border-radius:14px;padding:16px}.kpi strong{display:block;font-size:24px;margin-bottom:4px}.kpi small{color:#a9bdd4}
-    .impact{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}.impactBox{border:1px solid #34475e;background:#101d2d;border-radius:14px;padding:16px}.impactBox.bad{border-color:rgba(255,204,102,.35);background:rgba(255,204,102,.06)}.impactBox.good{border-color:rgba(66,232,139,.35);background:rgba(66,232,139,.06)}
-    .impactBox h3{margin:0 0 10px;font-size:17px}.impactBox ul{margin:0;padding-left:18px;color:#c0d2e7;line-height:1.55}
-    .closing{margin-top:18px;text-align:center;color:#b9cbe0;font-size:14px;line-height:1.45}.closing strong{color:#dffefa}footer{margin-top:18px;text-align:center;color:#76a6c9;font-size:12px}
-    @media(max-width:980px){.topline,.lower,.impact{grid-template-columns:1fr}.company,.splitline,.kpis{grid-template-columns:1fr 1fr}.flow{grid-template-columns:1fr}header{flex-direction:column}}
-    @media(max-width:560px){.company,.splitline,.kpis{grid-template-columns:1fr}.outcome{font-size:48px}h1{font-size:27px}.scenario-title{font-size:26px}}
-  </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>FlowSignal™ Runtime Authority Flexibility Demo</title>
+<style>
+:root{
+  --bg:#06111f;--panel:#101c2b;--line:#2b3b4f;--text:#f4f8ff;--muted:#9fb3ca;
+  --teal:#22d3c6;--green:#42e88b;--amber:#ffcc66;--red:#ff5d6c;--blue:#5fb5ff;
+  --shadow:0 18px 45px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:radial-gradient(circle at top left,rgba(34,211,198,.18),transparent 30%),radial-gradient(circle at bottom right,rgba(95,181,255,.12),transparent 28%),linear-gradient(180deg,#050b14 0%,var(--bg) 100%);color:var(--text)}
+.wrap{max-width:1360px;margin:0 auto;padding:26px}
+header{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;margin-bottom:20px}
+.brand{display:flex;gap:14px;align-items:center}.logo{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(34,211,198,.55);background:rgba(34,211,198,.08);box-shadow:0 0 28px rgba(34,211,198,.15);flex:none}
+.logo:before{content:"";width:21px;height:21px;border-radius:50%;border:3px solid var(--teal);border-left-color:transparent;transform:rotate(-35deg);display:block}
+h1{margin:0;font-size:35px;line-height:1.02;letter-spacing:-.04em}.subtitle{margin-top:8px;color:#b8c9dc;font-size:14px;max-width:870px;line-height:1.4}
+.badge{border:1px solid rgba(34,211,198,.5);color:#dcfffb;background:rgba(34,211,198,.08);padding:10px 16px;border-radius:999px;font-weight:900;font-size:12px;white-space:nowrap}
+.domainTabs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px}
+.tab{border:1px solid #35485f;background:#132235;color:white;border-radius:14px;padding:16px;text-align:left;cursor:pointer}
+.tab strong{display:block;font-size:18px;margin-bottom:5px}.tab span{color:#b7c9dd;font-size:13px}.tab.active{border-color:var(--teal);background:rgba(34,211,198,.10)}
+.topline{display:grid;grid-template-columns:1.12fr .88fr;gap:18px}.card{background:linear-gradient(180deg,rgba(20,34,53,.96),rgba(12,24,39,.96));border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:20px}
+.label{color:#9fd7ff;text-transform:uppercase;font-weight:1000;font-size:12px;letter-spacing:.13em;margin-bottom:10px}.scenario-title{font-size:34px;line-height:1.04;margin:0 0 12px;letter-spacing:-.04em}
+p{color:#c0d2e7;line-height:1.45;margin:0 0 12px}.banner{display:none;border:1px solid rgba(255,93,108,.55);background:rgba(255,93,108,.12);color:#ffe6e9;padding:13px;border-radius:12px;margin:12px 0;font-weight:900}.banner .small{display:block;color:#ffbdc4;font-weight:700;margin-top:4px;font-size:12px}
+.company{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0}.mini{padding:14px;border:1px solid var(--line);border-radius:12px;background:#0c1929;min-height:78px}.mini .k{font-size:11px;color:#a9bdd4;margin-bottom:6px}.mini .v{font-size:18px;font-weight:1000}
+.splitline{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}.question{padding:16px;border-radius:14px;background:#0e1d2e;border:1px solid #31445a}.question strong{font-size:16px}.question span{display:block;color:#a9bdd4;font-size:12px;margin-top:6px;line-height:1.35}
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:14px}.flow div{border:1px solid #31445a;background:#0d1b2b;border-radius:12px;padding:12px;min-height:78px}.flow span{display:block;color:#6fbfff;font-weight:1000;font-size:11px;margin-bottom:6px}.flow strong{font-size:12px;line-height:1.18;display:block}
+.decision{margin-top:24px;border:1px solid #385169;border-radius:16px;background:#132132;padding:20px;position:relative;overflow:hidden}.decision small{display:block;color:#9fd7ff;font-weight:1000;text-transform:uppercase;letter-spacing:.12em}.outcome{font-size:64px;font-weight:1000;line-height:1;margin:8px 0;letter-spacing:-.05em}.allow{color:var(--green)}.escalate{color:var(--amber)}.refuse{color:var(--red)}
+.controls{display:grid;gap:12px}.groupTitle{margin-top:8px;font-size:12px;color:#a7bfd9;font-weight:1000;text-transform:uppercase;letter-spacing:.11em}
+button.scenario{width:100%;text-align:left;border:1px solid #35485f;background:#172435;color:var(--text);border-radius:12px;padding:13px 14px;cursor:pointer;font-weight:1000;transition:.15s}
+button.scenario small{display:block;color:#b7c9dd;font-weight:600;margin-top:4px;line-height:1.3}button.scenario:hover{border-color:#6085aa;transform:translateY(-1px)}button.scenario.active{border-color:var(--teal);background:rgba(34,211,198,.1)}
+.manual{margin-top:14px;display:grid;gap:12px}.field{border:1px solid #34475e;background:#101d2d;border-radius:12px;padding:13px}.field label{display:block;font-weight:900;margin-bottom:9px}.sliderRow{display:flex;align-items:center;gap:14px}input[type=range]{width:100%;accent-color:var(--teal)}
+select{width:100%;background:#0a1726;color:white;border:1px solid #3b536d;border-radius:10px;padding:10px;font-weight:800}
+.toggle{display:flex;justify-content:space-between;align-items:center;gap:14px;border:1px solid #34475e;background:#101d2d;border-radius:12px;padding:13px}.toggle .hint{display:block;color:#a9bdd4;font-size:12px;margin-top:4px}.switch{width:46px;height:24px;border-radius:99px;background:#21354c;padding:3px;cursor:pointer;flex:none}.switch i{display:block;width:18px;height:18px;border-radius:50%;background:white;transition:.2s}.switch.on{background:#19c7da}.switch.on i{transform:translateX(22px)}
+.lower{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}.checks{display:grid;gap:10px}.check{display:flex;justify-content:space-between;gap:12px;align-items:center;border:1px solid #31445a;background:#0d1b2b;border-radius:12px;padding:12px}.check strong{font-size:13px}.check span{display:block;color:#b7c9dd;font-size:12px;margin-top:3px;line-height:1.3}.pill{font-size:11px;font-weight:1000;border-radius:999px;padding:7px 9px;color:white;min-width:62px;text-align:center}.pass{background:#2c8d68}.fail{background:#a43f4d}.warn{background:#b58124}
+pre{white-space:pre-wrap;margin:0;max-height:410px;overflow:auto;background:#07111d;border:1px solid #26374b;border-radius:12px;padding:16px;color:#dcefff;font-size:12px;line-height:1.45}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.kpi{background:#101d2d;border:1px solid #34475e;border-radius:14px;padding:16px}.kpi strong{display:block;font-size:24px;margin-bottom:4px}.kpi small{color:#a9bdd4}
+.impact{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}.impactBox{border:1px solid #34475e;background:#101d2d;border-radius:14px;padding:16px}.impactBox.bad{border-color:rgba(255,204,102,.35);background:rgba(255,204,102,.06)}.impactBox.good{border-color:rgba(66,232,139,.35);background:rgba(66,232,139,.06)}.impactBox h3{margin:0 0 10px;font-size:17px}.impactBox ul{margin:0;padding-left:18px;color:#c0d2e7;line-height:1.55}
+.closing{margin-top:18px;text-align:center;color:#b9cbe0;font-size:14px;line-height:1.45}.closing strong{color:#dffefa}footer{margin-top:18px;text-align:center;color:#76a6c9;font-size:12px}
+@media(max-width:980px){.topline,.lower,.impact,.domainTabs{grid-template-columns:1fr}.company,.splitline,.kpis{grid-template-columns:1fr 1fr}.flow{grid-template-columns:1fr}header{flex-direction:column}}
+@media(max-width:560px){.company,.splitline,.kpis{grid-template-columns:1fr}.outcome{font-size:48px}h1{font-size:27px}.scenario-title{font-size:26px}}
+</style>
 </head>
 <body>
 <div class="wrap">
-  <header>
-    <div class="brand">
-      <div class="logo"></div>
-      <div>
-        <h1>Recruitment Authority & Admissibility</h1>
-        <div class="subtitle">A FlowSignal™ demonstration showing how growing organisations can delegate hiring decisions while preserving salary authority, headcount control, onboarding readiness and defensible evidence.</div>
+<header>
+  <div class="brand"><div class="logo"></div><div><h1>FlowSignal™ Runtime Authority Flexibility Demo</h1><div class="subtitle">One runtime authority layer. Multiple business processes. Supplier commitments, recruitment approvals and geopolitical admissibility all resolve through the same ALLOW / ESCALATE / REFUSE engine.</div></div></div>
+  <div class="badge">Defensible Delegation™ + Defensible Execution™</div>
+</header>
+
+<div class="domainTabs">
+  <button class="tab active" data-domain="supplier"><strong>Supplier & Spend</strong><span>Contracts, suppliers, budget and trade admissibility.</span></button>
+  <button class="tab" data-domain="recruitment"><strong>Recruitment</strong><span>Hiring authority, salary bands, headcount and onboarding checks.</span></button>
+  <button class="tab" data-domain="regulated"><strong>Regulated Execution</strong><span>AI-assisted action, risk threshold and execution admissibility.</span></button>
+</div>
+
+<section class="topline">
+  <div class="card">
+    <div class="label" id="scenarioLabel">Supplier & Spend · Within Authority</div>
+    <h2 class="scenario-title" id="headline">Can David approve this supplier contract without going back to Sarah?</h2>
+    <p id="story"></p>
+    <div id="eventBanner" class="banner">External Rule / Sanctions Feed Updated · 11:42 UTC<span class="small">Nothing changed about the actor’s authority. The world changed. FlowSignal re-evaluated admissibility before consequence formed.</span></div>
+    <div class="company">
+      <div class="mini"><div class="k" id="person1Label">Founder & CEO</div><div class="v" id="person1">Sarah Johnson</div></div>
+      <div class="mini"><div class="k" id="person2Label">Actor</div><div class="v" id="person2">David Smith</div></div>
+      <div class="mini"><div class="k" id="limitLabel">Authority Limit</div><div class="v" id="limitValue">£25,000</div></div>
+      <div class="mini"><div class="k" id="objectLabel">Action</div><div class="v" id="objectValue">Supplier Contract</div></div>
+    </div>
+    <div class="splitline">
+      <div class="question"><strong>Authority Question</strong><span id="authorityQuestion">Is the actor allowed to make or initiate this decision?</span></div>
+      <div class="question"><strong>Admissibility Question</strong><span id="admissibilityQuestion">Even if authorised, can the organisation still execute it right now?</span></div>
+    </div>
+    <div class="flow">
+      <div><span>01</span><strong id="flow1">Business action requested</strong></div>
+      <div><span>02</span><strong>Authority resolved</strong></div>
+      <div><span>03</span><strong>Policy and context checked</strong></div>
+      <div><span>04</span><strong>Execution boundary reached</strong></div>
+      <div><span>05</span><strong>ALLOW / ESCALATE / REFUSE</strong></div>
+    </div>
+    <div class="decision">
+      <small>FlowSignal runtime decision</small>
+      <div class="outcome allow" id="outcome">ALLOW</div>
+      <p id="decisionText"></p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="label">Scenario Controls</div>
+    <div class="controls" id="scenarioButtons"></div>
+    <div class="manual">
+      <div class="field">
+        <label><span id="valueLabel">Contract value</span> <span id="valueDisplay">£18,500</span></label>
+        <div class="sliderRow"><input id="valueSlider" type="range" min="5000" max="100000" step="500" value="18500"></div>
+      </div>
+      <div class="toggle">
+        <div><strong id="authorityToggleLabel">Actor authority active</strong><span class="hint" id="authorityText">Yes</span></div>
+        <div class="switch on" id="authoritySwitch"><i></i></div>
+      </div>
+      <div class="field">
+        <label>Admissibility status</label>
+        <select id="admissibilitySelect"></select>
       </div>
     </div>
-    <div class="badge">Defensible Hiring™ Demo</div>
-  </header>
+  </div>
+</section>
 
-  <section class="topline">
-    <div class="card">
-      <div class="label" id="scenarioLabel">Recruitment Scenario · Within Authority</div>
-      <h2 class="scenario-title" id="headline">Can a manager issue this job offer without going back to the founder?</h2>
-      <p id="story">ScaleTech Ltd is hiring quickly. Sarah Johnson wants department managers to recruit without becoming dependent on founder approval, but only when headcount, salary band, right-to-work and onboarding conditions remain valid.</p>
+<section class="lower">
+  <div class="card"><div class="label" id="evalTitle">Authority Resolution & Admissibility Evaluation</div><div class="checks" id="checks"></div></div>
+  <div class="card"><div class="label">Evidence Payload</div><pre id="payload"></pre></div>
+</section>
 
-      <div class="company">
-        <div class="mini"><div class="k">Founder & CEO</div><div class="v">Sarah Johnson</div></div>
-        <div class="mini"><div class="k">Hiring Manager</div><div class="v">David Smith</div></div>
-        <div class="mini"><div class="k">Salary Authority</div><div class="v">£50,000</div></div>
-        <div class="mini"><div class="k">Role</div><div class="v" id="roleCard">Customer Success</div></div>
-      </div>
-
-      <div class="splitline">
-        <div class="question"><strong>Authority Question</strong><span>Is David allowed to approve this hire or offer?</span></div>
-        <div class="question"><strong>Admissibility Question</strong><span>Even if David is authorised, can the organisation still onboard this person compliantly?</span></div>
-      </div>
-
-      <div class="flow">
-        <div><span>01</span><strong>Recruitment action requested</strong></div>
-        <div><span>02</span><strong>Hiring authority resolved</strong></div>
-        <div><span>03</span><strong>Headcount and salary checked</strong></div>
-        <div><span>04</span><strong>Onboarding conditions evaluated</strong></div>
-        <div><span>05</span><strong>ALLOW / ESCALATE / REFUSE</strong></div>
-      </div>
-
-      <div class="decision">
-        <small>FlowSignal runtime decision</small>
-        <div class="outcome allow" id="outcome">ALLOW</div>
-        <p id="decisionText">Hiring authority valid. Headcount approved. Salary within band. Onboarding admissible.</p>
-      </div>
+<section class="lower">
+  <div class="card">
+    <div class="label">Board-Level KPI Readout</div>
+    <div class="kpis">
+      <div class="kpi"><strong id="kpiSpeed">Fast</strong><small id="kpi1">Decision speed</small></div>
+      <div class="kpi"><strong id="kpiRisk">Controlled</strong><small id="kpi2">Governance risk</small></div>
+      <div class="kpi"><strong id="kpiFounder">Low</strong><small id="kpi3">Founder dependency</small></div>
+      <div class="kpi"><strong id="kpiAudit">100%</strong><small id="kpi4">Audit readiness</small></div>
     </div>
-
-    <div class="card">
-      <div class="label">Scenario Controls</div>
-      <div class="controls">
-        <div class="groupTitle">Hiring Authority</div>
-        <button class="active" data-scenario="within">Within Authority<small>Customer Success Manager, £48,000. Approved headcount.</small></button>
-        <button data-scenario="salary">Salary Above Authority<small>Offer salary exceeds David's delegated hiring limit.</small></button>
-        <button data-scenario="headcount">Headcount Not Approved<small>Budget exists, but the role is not in the approved hiring plan.</small></button>
-
-        <div class="groupTitle">Onboarding Admissibility</div>
-        <button data-scenario="righttowork">Right-to-Work Pending<small>Candidate is strong, but employment checks are incomplete.</small></button>
-        <button data-scenario="contractor">Contractor Classification Risk<small>Contractor engagement may create employment status risk.</small></button>
-        <button data-scenario="conflict">Conflict of Interest<small>Candidate has a declared relationship with the hiring manager.</small></button>
-
-        <div class="groupTitle">Delegation</div>
-        <button data-scenario="founder">Founder Unavailable<small>Sarah is travelling. Valid delegated hiring can proceed.</small></button>
-      </div>
-
-      <div class="manual">
-        <div class="field">
-          <label>Offer salary <span id="salaryValue">£48,000</span></label>
-          <div class="sliderRow"><input id="salarySlider" type="range" min="30000" max="95000" step="1000" value="48000"></div>
-        </div>
-
-        <div class="toggle">
-          <div><strong>Hiring authority active</strong><span class="hint" id="authorityText">Yes</span></div>
-          <div class="switch on" id="authoritySwitch"><i></i></div>
-        </div>
-
-        <div class="field">
-          <label>Onboarding admissibility</label>
-          <select id="admissibilitySelect">
-            <option value="normal">Normal</option>
-            <option value="headcount_missing">Headcount not approved</option>
-            <option value="right_to_work_pending">Right-to-work pending</option>
-            <option value="classification_risk">Contractor classification risk</option>
-            <option value="conflict">Conflict of interest</option>
-            <option value="restricted">Hard onboarding block</option>
-          </select>
-        </div>
-      </div>
+    <div class="closing"><strong>Board line:</strong> FlowSignal™ does not decide what the business should do. It determines whether the person, team, workflow or AI attempting execution still has authority, and whether the organisation can still execute defensibly.</div>
+  </div>
+  <div class="card">
+    <div class="label">Why This Shows Flexibility</div>
+    <div class="impact">
+      <div class="impactBox bad"><h3>Without FlowSignal™</h3><ul id="withoutList"></ul></div>
+      <div class="impactBox good"><h3>With FlowSignal™</h3><ul id="withList"></ul></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="lower">
-    <div class="card"><div class="label">Hiring Authority & Onboarding Evaluation</div><div class="checks" id="checks"></div></div>
-    <div class="card"><div class="label">Evidence Payload</div><pre id="payload"></pre></div>
-  </section>
+<section class="card" style="margin-top:18px;">
+  <div class="label">Category Point</div>
+  <p><strong>The workflow changes. The authority question does not.</strong> Whether the action is a supplier contract, a job offer, or an AI-assisted regulated execution, FlowSignal asks whether the actor has authority and whether the organisation can still execute at bind-time.</p>
+</section>
 
-  <section class="lower">
-    <div class="card">
-      <div class="label">Board-Level KPI Readout</div>
-      <div class="kpis">
-        <div class="kpi"><strong id="kpiSpeed">Fast</strong><small>Hiring speed</small></div>
-        <div class="kpi"><strong id="kpiRisk">Controlled</strong><small>People risk</small></div>
-        <div class="kpi"><strong id="kpiFounder">Low</strong><small>Founder dependency</small></div>
-        <div class="kpi"><strong id="kpiAudit">100%</strong><small>Offer evidence</small></div>
-      </div>
-      <div class="closing"><strong>Board line:</strong> FlowSignal™ does not decide who to hire. It determines whether the hiring action is authorised and whether the organisation can proceed defensibly.</div>
-    </div>
-
-    <div class="card">
-      <div class="label">Scaling Impact</div>
-      <div class="impact">
-        <div class="impactBox bad"><h3>Without FlowSignal™</h3><ul><li>Offer approvals delayed</li><li>Founder dragged into routine hires</li><li>Salary exceptions handled informally</li><li>Onboarding evidence reconstructed later</li></ul></div>
-        <div class="impactBox good"><h3>With FlowSignal™</h3><ul><li>Routine offers approved in minutes</li><li>Exceptions routed automatically</li><li>Hiring authority visible at bind-time</li><li>Defensible offer evidence created automatically</li></ul></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="card" style="margin-top:18px;">
-    <div class="label">Why This Matters</div>
-    <p><strong>Hiring decisions are consequential.</strong> A manager may be trusted to recruit, but the organisation still needs to know whether headcount exists, salary authority is valid, employment checks are complete and onboarding is admissible.</p>
-    <p><strong>FlowSignal™ turns delegated hiring into a controlled execution boundary.</strong> The company can move faster without weakening governance.</p>
-  </section>
-
-  <footer>FlowSignal™ · Runtime authority infrastructure for bind-time admissibility determination prior to execution commit.</footer>
+<footer>FlowSignal™ · Runtime authority infrastructure for bind-time admissibility determination prior to execution commit.</footer>
 </div>
 
 <script>
-const salaryLimit = 50000;
-const scenarios = {
-  within:{group:"Recruitment Scenario · Within Authority",headline:"Can David issue this job offer without going back to Sarah?",story:"David Smith wants to offer a Customer Success Manager role at £48,000. Hiring authority is active, headcount is approved, salary is within limit and onboarding conditions are normal.",salary:48000,authority:true,admissibility:"normal",role:"Customer Success Manager",candidate:"Alex Morgan",founder:"Available"},
-  salary:{group:"Recruitment Scenario · Salary Above Authority",headline:"Can David approve a £68,000 offer under a £50,000 hiring limit?",story:"David wants to move quickly, but the proposed salary exceeds his delegated hiring authority. The hire may still be valid, but requires higher authority.",salary:68000,authority:true,admissibility:"normal",role:"Senior Customer Success Manager",candidate:"Alex Morgan",founder:"Available"},
-  headcount:{group:"Recruitment Scenario · Headcount Not Approved",headline:"Can David hire into a role that is not in the approved headcount plan?",story:"David has hiring authority and the salary is reasonable, but the role is not in the approved headcount plan. Execution requires review.",salary:48000,authority:true,admissibility:"headcount_missing",role:"Customer Success Manager",candidate:"Alex Morgan",founder:"Available"},
-  righttowork:{group:"Onboarding Scenario · Right-to-Work Pending",headline:"Can the offer proceed before employment checks are complete?",story:"The candidate is strong and the salary is within authority, but right-to-work verification is pending. FlowSignal routes the action before the offer commits.",salary:48000,authority:true,admissibility:"right_to_work_pending",role:"Customer Success Manager",candidate:"Alex Morgan",founder:"Available"},
-  contractor:{group:"Onboarding Scenario · Contractor Classification Risk",headline:"Can David onboard this person as a contractor?",story:"The engagement looks like a contractor arrangement, but working pattern and control indicators create employment status risk. Execution requires HR/legal review.",salary:65000,authority:true,admissibility:"classification_risk",role:"Technical Contractor",candidate:"Sam Patel",founder:"Available"},
-  conflict:{group:"Onboarding Scenario · Conflict of Interest",headline:"Can David approve a candidate with a declared relationship?",story:"The candidate has declared a relationship with the hiring manager. The organisation may still hire, but the approval route must change.",salary:48000,authority:true,admissibility:"conflict",role:"Customer Success Manager",candidate:"Jamie Reed",founder:"Available"},
-  founder:{group:"Delegation Scenario · Founder Unavailable",headline:"Can hiring continue while Sarah is travelling?",story:"Sarah Johnson is unavailable for 48 hours. David has active delegated hiring authority, the salary is within limit and onboarding is admissible. The business can keep hiring.",salary:48000,authority:true,admissibility:"normal",role:"Customer Success Manager",candidate:"Alex Morgan",founder:"Singapore · unavailable 48 hours"}
+const domains = {
+ supplier:{
+  valueName:"Contract value", valueMin:5000, valueMax:100000, valueStep:500, limit:25000, unit:"£",
+  person1Label:"Founder & CEO", person1:"Sarah Johnson", person2Label:"Operations Manager", person2:"David Smith",
+  limitLabel:"Delegated Limit", objectLabel:"Action", objectValue:"Supplier Contract",
+  flow1:"Supplier / spend action requested", evalTitle:"Authority Resolution & Trade Admissibility Evaluation",
+  authorityQuestion:"Is David allowed to approve or initiate this supplier commitment?",
+  admissibilityQuestion:"Even if David is authorised, can the organisation still trade, onboard or execute with this supplier right now?",
+  kpis:["Decision speed","Governance risk","Founder dependency","Audit readiness"],
+  without:["Approval time: 48 hours","Founder interventions: 87 / month","Supplier evidence reconstructed later","Sanctions changes handled manually"],
+  with:["Routine approvals in minutes","Exceptions routed automatically","Execution evidence created at bind-time","Geopolitical changes checked before consequence"],
+  admissibilityOptions:[
+    ["normal","Normal"],
+    ["new_supplier","New supplier review required"],
+    ["high_risk","High-risk jurisdiction"],
+    ["restricted","Restricted / sanctions failure"]
+  ],
+  scenarios:{
+    within:{label:"Supplier & Spend · Within Authority",title:"Within Authority",headline:"Can David approve this supplier contract without going back to Sarah?",story:"David wants to approve an £18,500 supplier contract. His delegation is active, the value is within limit, and execution conditions are normal.",value:18500,authority:true,admissibility:"normal",object:"Supplier Contract",event:false},
+    threshold:{label:"Supplier & Spend · Threshold Exceeded",title:"Threshold Exceeded",headline:"Can David approve £75,000 under a £25,000 delegated limit?",story:"David has authority for normal commitments, but this request exceeds his delegated limit. The decision may be valid, but not at David's authority level.",value:75000,authority:true,admissibility:"normal",object:"Supplier Contract",event:false},
+    founder:{label:"Supplier & Spend · Founder Unavailable",title:"Founder Unavailable",headline:"Can the business keep operating while Sarah is travelling?",story:"Sarah is in Singapore and unavailable for 48 hours. Because David has active delegated authority, a normal within-limit decision can proceed without creating a founder bottleneck.",value:18500,authority:true,admissibility:"normal",object:"Supplier Contract",event:false},
+    supplier:{label:"Supplier Governance · New Supplier Onboarding",title:"New Supplier Onboarding",headline:"Can David approve a new supplier before due diligence is complete?",story:"David has authority to approve the spend, but the supplier is new and onboarding checks have not completed. Authority exists, but execution needs review.",value:18000,authority:true,admissibility:"new_supplier",object:"New Supplier",event:false},
+    sanctions:{label:"Supplier Governance · Sanctions Update",title:"Sanctions Update",headline:"What happens when the world changes before execution commits?",story:"David's authority has not changed. The supplier was previously valid. A sanctions update changes geopolitical admissibility before consequence forms.",value:18500,authority:true,admissibility:"restricted",object:"Supplier Contract",event:true}
+  }
+ },
+ recruitment:{
+  valueName:"Offer salary", valueMin:30000, valueMax:95000, valueStep:1000, limit:50000, unit:"£",
+  person1Label:"Founder & CEO", person1:"Sarah Johnson", person2Label:"Hiring Manager", person2:"David Smith",
+  limitLabel:"Salary Authority", objectLabel:"Role", objectValue:"Customer Success",
+  flow1:"Recruitment action requested", evalTitle:"Hiring Authority & Onboarding Evaluation",
+  authorityQuestion:"Is David allowed to approve or issue this offer?",
+  admissibilityQuestion:"Even if David is authorised, can the organisation defensibly onboard this person now?",
+  kpis:["Hiring speed","People risk","Founder dependency","Offer evidence"],
+  without:["Offer approvals delayed","Founder dragged into routine hires","Salary exceptions handled informally","Onboarding evidence reconstructed later"],
+  with:["Routine offers approved in minutes","Exceptions routed automatically","Hiring authority visible at bind-time","Defensible offer evidence created automatically"],
+  admissibilityOptions:[
+    ["normal","Normal"],
+    ["headcount_missing","Headcount not approved"],
+    ["right_to_work_pending","Right-to-work pending"],
+    ["classification_risk","Contractor classification risk"],
+    ["conflict","Conflict of interest"],
+    ["restricted","Hard onboarding block"]
+  ],
+  scenarios:{
+    within:{label:"Recruitment · Within Authority",title:"Within Authority",headline:"Can David issue this job offer without going back to Sarah?",story:"David wants to offer a Customer Success Manager role at £48,000. Hiring authority is active, headcount is approved, salary is within limit and onboarding conditions are normal.",value:48000,authority:true,admissibility:"normal",object:"Customer Success",event:false},
+    salary:{label:"Recruitment · Salary Above Authority",title:"Salary Above Authority",headline:"Can David approve a £68,000 offer under a £50,000 hiring limit?",story:"David wants to move quickly, but the proposed salary exceeds his delegated hiring authority. The hire may still be valid, but requires higher authority.",value:68000,authority:true,admissibility:"normal",object:"Senior CSM",event:false},
+    headcount:{label:"Recruitment · Headcount Not Approved",title:"Headcount Not Approved",headline:"Can David hire into a role that is not in the approved headcount plan?",story:"David has hiring authority and the salary is reasonable, but the role is not in the approved headcount plan. Execution requires review.",value:48000,authority:true,admissibility:"headcount_missing",object:"Customer Success",event:false},
+    checks:{label:"Recruitment · Right-to-Work Pending",title:"Right-to-Work Pending",headline:"Can the offer proceed before employment checks are complete?",story:"The candidate is strong and the salary is within authority, but right-to-work verification is pending. FlowSignal routes the action before the offer commits.",value:48000,authority:true,admissibility:"right_to_work_pending",object:"Customer Success",event:false},
+    founder:{label:"Recruitment · Founder Unavailable",title:"Founder Unavailable",headline:"Can hiring continue while Sarah is travelling?",story:"Sarah is unavailable for 48 hours. David has active delegated hiring authority, the salary is within limit and onboarding is admissible. The business can keep hiring.",value:48000,authority:true,admissibility:"normal",object:"Customer Success",event:false}
+  }
+ },
+ regulated:{
+  valueName:"Risk intensity", valueMin:0, valueMax:100, valueStep:1, limit:65, unit:"",
+  person1Label:"Accountable Executive", person1:"Sarah Johnson", person2Label:"AI Workflow Owner", person2:"David Smith",
+  limitLabel:"Risk Threshold", objectLabel:"Action", objectValue:"AI Execution",
+  flow1:"AI-assisted action requested", evalTitle:"Runtime Authority & Execution Admissibility Evaluation",
+  authorityQuestion:"Is this workflow authorised to attempt the action?",
+  admissibilityQuestion:"Even if authorised, can the organisation defend execution under current policy, risk and oversight conditions?",
+  kpis:["Execution speed","Operational risk","Human dependency","Evidence readiness"],
+  without:["AI actions assessed after the fact","Policy gates approve without context","Escalations unclear","Audit evidence reconstructed later"],
+  with:["Execution checked at bind-time","Escalation/refusal independently resolved","Human oversight requirements enforced","Evidence created before consequence forms"],
+  admissibilityOptions:[
+    ["normal","Normal"],
+    ["oversight_missing","Human oversight unavailable"],
+    ["policy_exception","Policy exception"],
+    ["restricted","Hard execution block"]
+  ],
+  scenarios:{
+    allow:{label:"Regulated Execution · Within Policy",title:"Within Policy",headline:"Can this AI-assisted action execute?",story:"The workflow is authorised, risk intensity is within threshold, human oversight is available and policy conditions are normal.",value:42,authority:true,admissibility:"normal",object:"AI Execution",event:false},
+    escalate:{label:"Regulated Execution · Risk Threshold Exceeded",title:"Risk Threshold Exceeded",headline:"Can the action execute when risk intensity rises above threshold?",story:"The workflow is authorised, but risk intensity exceeds the permitted execution threshold. The action requires escalation before commitment.",value:78,authority:true,admissibility:"normal",object:"AI Execution",event:false},
+    oversight:{label:"Regulated Execution · Oversight Missing",title:"Oversight Missing",headline:"Can the action execute without the required human oversight?",story:"The workflow remains authorised, but the required human reviewer is unavailable. Execution cannot proceed without the required oversight condition.",value:52,authority:true,admissibility:"oversight_missing",object:"AI Execution",event:false},
+    policy:{label:"Regulated Execution · Policy Exception",title:"Policy Exception",headline:"Can the AI-assisted action proceed when policy context changes?",story:"The actor is authorised, but a policy exception has appeared before execution commits. FlowSignal routes the action for review.",value:50,authority:true,admissibility:"policy_exception",object:"AI Execution",event:true},
+    refuse:{label:"Regulated Execution · Hard Block",title:"Hard Block",headline:"Can the organisation defend execution if a hard condition fails?",story:"A mandatory execution condition fails at bind-time. FlowSignal refuses execution before consequence forms.",value:80,authority:true,admissibility:"restricted",object:"AI Execution",event:true}
+  }
+ }
 };
-let state = {...scenarios.within, scenario:"within"};
-function money(n){return "£"+Number(n).toLocaleString("en-GB");}
-function evaluation(){
-  const checks=[];
-  checks.push({name:"Hiring Authority",detail:state.authority?"David Smith has active delegated hiring authority.":"David Smith does not have active hiring authority.",status:state.authority?"PASS":"FAIL",type:state.authority?"pass":"fail",failure:"REFUSE"});
-  checks.push({name:"Salary Authority",detail:`${money(state.salary)} offer against ${money(salaryLimit)} delegated salary limit.`,status:state.salary<=salaryLimit?"PASS":"FAIL",type:state.salary<=salaryLimit?"pass":"warn",failure:"ESCALATE"});
-  checks.push({name:"Founder Dependency",detail:state.founder.includes("unavailable")?"Founder unavailable. Valid delegation allows hiring continuity.":"Founder available, but not required for valid delegated hiring.",status:"PASS",type:"pass"});
-  if(state.admissibility==="normal") checks.push({name:"Onboarding Admissibility",detail:"Headcount approved and onboarding checks are clear.",status:"PASS",type:"pass"});
-  if(state.admissibility==="headcount_missing") checks.push({name:"Headcount Approval",detail:"Role is not currently in the approved hiring plan.",status:"FAIL",type:"warn",failure:"ESCALATE"});
-  if(state.admissibility==="right_to_work_pending") checks.push({name:"Right-to-Work Verification",detail:"Employment eligibility checks are incomplete.",status:"FAIL",type:"warn",failure:"ESCALATE"});
-  if(state.admissibility==="classification_risk") checks.push({name:"Contractor Classification",detail:"Engagement creates employment status risk and requires review.",status:"REVIEW",type:"warn",failure:"ESCALATE"});
-  if(state.admissibility==="conflict") checks.push({name:"Conflict of Interest",detail:"Candidate relationship requires independent approval route.",status:"REVIEW",type:"warn",failure:"ESCALATE"});
-  if(state.admissibility==="restricted") checks.push({name:"Hard Onboarding Block",detail:"Organisation cannot defensibly proceed with onboarding.",status:"FAIL",type:"fail",failure:"REFUSE"});
-  let outcome="ALLOW";
-  if(!state.authority || state.admissibility==="restricted") outcome="REFUSE";
-  else if(state.salary>salaryLimit || state.admissibility!=="normal") outcome="ESCALATE";
-  return {checks,outcome};
+
+let currentDomain = "supplier";
+let state = {...domains.supplier.scenarios.within, scenario:"within"};
+
+function money(n, unit){return unit === "£" ? "£"+Number(n).toLocaleString("en-GB") : Number(n).toString();}
+function d(){return domains[currentDomain];}
+
+function buildScenarioButtons(){
+ const domain=d();
+ const container=document.getElementById("scenarioButtons");
+ container.innerHTML="";
+ const groups = currentDomain==="supplier" ?
+  [["Authority",["within","threshold","founder"]],["Supplier Governance",["supplier","sanctions"]]] :
+  currentDomain==="recruitment" ?
+  [["Hiring Authority",["within","salary","headcount"]],["Onboarding Admissibility",["checks","founder"]]] :
+  [["Regulated Execution",["allow","escalate","oversight","policy","refuse"]]];
+ groups.forEach(([title, keys])=>{
+   const gt=document.createElement("div"); gt.className="groupTitle"; gt.textContent=title; container.appendChild(gt);
+   keys.forEach(k=>{
+    const s=domain.scenarios[k]; const btn=document.createElement("button"); btn.className="scenario"; btn.dataset.scenario=k;
+    btn.innerHTML=s.title+"<small>"+s.story+"</small>";
+    btn.addEventListener("click",()=>setScenario(k));
+    container.appendChild(btn);
+   });
+ });
 }
-function decisionText(outcome){
-  if(outcome==="ALLOW"){
-    if(state.founder.includes("unavailable")) return "Hiring authority is active and onboarding conditions are valid. The business can continue hiring without founder dependency.";
-    return "Hiring authority valid. Headcount approved. Salary within band. Onboarding admissible.";
-  }
-  if(outcome==="ESCALATE"){
-    if(state.salary>salaryLimit) return "The hire is not refused, but the salary exceeds David's delegated hiring authority and must be routed to the correct authority holder.";
-    return "The manager may have hiring authority, but onboarding or governance conditions require review before the offer commits.";
-  }
-  return "Execution is refused because a hard authority or onboarding condition fails at bind-time.";
+
+function setDomain(name){
+ currentDomain=name;
+ document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("active",t.dataset.domain===name));
+ buildScenarioButtons();
+ const first=Object.keys(d().scenarios)[0];
+ setScenario(first);
 }
+
 function setScenario(name){
-  document.querySelectorAll("button[data-scenario]").forEach(b=>b.classList.remove("active"));
-  const btn=document.querySelector(`button[data-scenario="${name}"]`);
-  if(btn) btn.classList.add("active");
-  state={...scenarios[name],scenario:name};
-  render();
+ state={...d().scenarios[name],scenario:name};
+ document.querySelectorAll("button.scenario").forEach(b=>b.classList.toggle("active",b.dataset.scenario===name));
+ render();
 }
+
+function evaluation(){
+ const domain=d(); const checks=[];
+ const authorityName = currentDomain==="recruitment" ? "Hiring Authority" : currentDomain==="regulated" ? "Workflow Authority" : "Actor Authority";
+ checks.push({name:authorityName,detail:state.authority?"Authority is active at bind-time.":"Authority is inactive or expired at bind-time.",status:state.authority?"PASS":"FAIL",type:state.authority?"pass":"fail",failure:"REFUSE"});
+ const limitName = currentDomain==="recruitment" ? "Salary Limit" : currentDomain==="regulated" ? "Risk Threshold" : "Authority Limit";
+ const within = currentDomain==="regulated" ? state.value <= domain.limit : state.value <= domain.limit;
+ checks.push({name:limitName,detail:`${domain.valueName}: ${money(state.value,domain.unit)} against limit ${money(domain.limit,domain.unit)}.`,status:within?"PASS":"FAIL",type:within?"pass":"warn",failure:"ESCALATE"});
+ if(currentDomain!=="regulated") checks.push({name:"Founder Dependency",detail:state.scenario==="founder"?"Founder unavailable. Valid delegation allows continuity.":"Founder available, but not required for valid delegated actions.",status:"PASS",type:"pass"});
+ if(state.admissibility==="normal") checks.push({name:"Execution Admissibility",detail:"No policy, onboarding, supplier or oversight exception detected.",status:"PASS",type:"pass"});
+ const map={
+  new_supplier:["Supplier Onboarding","Supplier due diligence has not completed.","ESCALATE","warn"],
+  high_risk:["Jurisdiction Risk","Supplier operates in a high-risk jurisdiction requiring compliance review.","ESCALATE","warn"],
+  headcount_missing:["Headcount Approval","Role is not currently in the approved hiring plan.","ESCALATE","warn"],
+  right_to_work_pending:["Right-to-Work Verification","Employment eligibility checks are incomplete.","ESCALATE","warn"],
+  classification_risk:["Contractor Classification","Engagement creates employment status risk and requires review.","ESCALATE","warn"],
+  conflict:["Conflict of Interest","Candidate relationship requires independent approval route.","ESCALATE","warn"],
+  oversight_missing:["Human Oversight","Required human oversight is unavailable at execution time.","REFUSE","fail"],
+  policy_exception:["Policy Context","Policy exception detected before execution commit.","ESCALATE","warn"],
+  restricted:["Hard Admissibility Failure","Organisation cannot defensibly execute under current conditions.","REFUSE","fail"]
+ };
+ if(state.admissibility!=="normal"){
+  const m=map[state.admissibility];
+  checks.push({name:m[0],detail:m[1],status:m[2]==="REFUSE"?"FAIL":"REVIEW",type:m[3],failure:m[2]});
+ }
+ let outcome="ALLOW";
+ if(!state.authority || state.admissibility==="restricted" || state.admissibility==="oversight_missing") outcome="REFUSE";
+ else if(!within || state.admissibility!=="normal") outcome="ESCALATE";
+ return {checks,outcome};
+}
+
+function decisionText(outcome){
+ if(outcome==="ALLOW") return "Authority valid. Admissibility valid. Execution permitted.";
+ if(outcome==="ESCALATE") return "The action is not refused, but it requires the correct higher authority, review path or compliance check before commitment.";
+ return "Execution is refused because a hard authority or admissibility condition fails at bind-time.";
+}
+
 function render(){
-  document.getElementById("scenarioLabel").textContent=state.group;
-  document.getElementById("headline").textContent=state.headline;
-  document.getElementById("story").textContent=state.story;
-  document.getElementById("roleCard").textContent=state.role.replace(" Manager","");
-  document.getElementById("salaryValue").textContent=money(state.salary);
-  document.getElementById("salarySlider").value=state.salary;
-  document.getElementById("authorityText").textContent=state.authority?"Yes":"No";
-  document.getElementById("authoritySwitch").classList.toggle("on",state.authority);
-  document.getElementById("admissibilitySelect").value=state.admissibility;
-  const {checks,outcome}=evaluation();
-  const out=document.getElementById("outcome");
-  out.textContent=outcome;
-  out.className="outcome "+(outcome==="ALLOW"?"allow":outcome==="ESCALATE"?"escalate":"refuse");
-  document.getElementById("decisionText").textContent=decisionText(outcome);
-  document.getElementById("checks").innerHTML=checks.map(c=>`<div class="check"><div><strong>${c.name}</strong><span>${c.detail}</span></div><div class="pill ${c.type}">${c.status}</div></div>`).join("");
-  document.getElementById("kpiSpeed").textContent=outcome==="ALLOW"?"Fast":outcome==="ESCALATE"?"Routed":"Stopped";
-  document.getElementById("kpiRisk").textContent=outcome==="ALLOW"?"Controlled":outcome==="ESCALATE"?"Managed":"Protected";
-  document.getElementById("kpiFounder").textContent=state.founder.includes("unavailable")&&outcome==="ALLOW"?"None":outcome==="ALLOW"?"Low":"Required";
-  document.getElementById("kpiAudit").textContent=outcome==="ALLOW"?"100%":"Recorded";
-  const payload={
-    decision_id:"FS-REC-20260605-001",
-    product:"FlowSignal Recruitment Authority & Admissibility",
-    company:"ScaleTech Ltd",
-    hiring_manager:{name:"David Smith",role:"Operations Manager",authority_active:state.authority,salary_limit_gbp:salaryLimit},
-    founder:{name:"Sarah Johnson",status:state.founder},
-    candidate:state.candidate,
-    role:state.role,
-    offer_salary_gbp:state.salary,
-    authority_question:"Does the hiring manager have authority to approve or issue this offer?",
-    admissibility_question:"Can the organisation defensibly proceed with this hiring/onboarding action right now?",
-    onboarding_status:state.admissibility,
-    runtime_decision:outcome,
-    bind_time:"2026-06-05T12:16:00Z",
-    checks:checks.map(c=>({check:c.name,status:c.status,failure_outcome:c.failure||null})),
-    defensibility_note:outcome==="ALLOW"?"Offer was admissible at bind-time.":outcome==="ESCALATE"?"Offer requires higher authority or review before commitment.":"Offer was not admissible at bind-time."
-  };
-  document.getElementById("payload").textContent=JSON.stringify(payload,null,2);
+ const domain=d();
+ document.getElementById("scenarioLabel").textContent=state.label;
+ document.getElementById("headline").textContent=state.headline;
+ document.getElementById("story").textContent=state.story;
+ document.getElementById("eventBanner").style.display=state.event?"block":"none";
+ ["person1Label","person1","person2Label","person2","limitLabel","objectLabel"].forEach(id=>document.getElementById(id).textContent=domain[id]);
+ document.getElementById("limitValue").textContent=money(domain.limit,domain.unit);
+ document.getElementById("objectValue").textContent=state.object || domain.objectValue;
+ document.getElementById("authorityQuestion").textContent=domain.authorityQuestion;
+ document.getElementById("admissibilityQuestion").textContent=domain.admissibilityQuestion;
+ document.getElementById("flow1").textContent=domain.flow1;
+ document.getElementById("evalTitle").textContent=domain.evalTitle;
+ document.getElementById("valueLabel").textContent=domain.valueName;
+ document.getElementById("valueDisplay").textContent=money(state.value,domain.unit);
+ const slider=document.getElementById("valueSlider"); slider.min=domain.valueMin; slider.max=domain.valueMax; slider.step=domain.valueStep; slider.value=state.value;
+ document.getElementById("authorityText").textContent=state.authority?"Yes":"No";
+ document.getElementById("authoritySwitch").classList.toggle("on",state.authority);
+ const select=document.getElementById("admissibilitySelect");
+ const existing=[...select.options].map(o=>o.value).join(",");
+ const required=domain.admissibilityOptions.map(o=>o[0]).join(",");
+ if(existing!==required){select.innerHTML=domain.admissibilityOptions.map(o=>`<option value="${o[0]}">${o[1]}</option>`).join("");}
+ select.value=state.admissibility;
+ domain.kpis.forEach((k,i)=>document.getElementById("kpi"+(i+1)).textContent=k);
+ document.getElementById("withoutList").innerHTML=domain.without.map(x=>`<li>${x}</li>`).join("");
+ document.getElementById("withList").innerHTML=domain.with.map(x=>`<li>${x}</li>`).join("");
+ const {checks,outcome}=evaluation();
+ const out=document.getElementById("outcome");
+ out.textContent=outcome; out.className="outcome "+(outcome==="ALLOW"?"allow":outcome==="ESCALATE"?"escalate":"refuse");
+ document.getElementById("decisionText").textContent=decisionText(outcome);
+ document.getElementById("checks").innerHTML=checks.map(c=>`<div class="check"><div><strong>${c.name}</strong><span>${c.detail}</span></div><div class="pill ${c.type}">${c.status}</div></div>`).join("");
+ document.getElementById("kpiSpeed").textContent=outcome==="ALLOW"?"Fast":outcome==="ESCALATE"?"Routed":"Stopped";
+ document.getElementById("kpiRisk").textContent=outcome==="ALLOW"?"Controlled":outcome==="ESCALATE"?"Managed":"Protected";
+ document.getElementById("kpiFounder").textContent=state.scenario==="founder"&&outcome==="ALLOW"?"None":outcome==="ALLOW"?"Low":"Required";
+ document.getElementById("kpiAudit").textContent=outcome==="ALLOW"?"100%":"Recorded";
+ const payload={
+  decision_id:"FS-FLEX-20260605-001",
+  demo:"FlowSignal Runtime Authority Flexibility Demo",
+  domain:currentDomain,
+  scenario:state.label,
+  actor:domain.person2,
+  accountable_owner:domain.person1,
+  value:state.value,
+  value_type:domain.valueName,
+  authority_limit:domain.limit,
+  authority_active:state.authority,
+  admissibility_status:state.admissibility,
+  runtime_decision:outcome,
+  bind_time:"2026-06-05T12:42:00Z",
+  event:state.event?"External rule/feed update changed admissibility before execution commit":null,
+  checks:checks.map(c=>({check:c.name,status:c.status,failure_outcome:c.failure||null})),
+  defensibility_note:outcome==="ALLOW"?"Execution was admissible at bind-time.":outcome==="ESCALATE"?"Execution required higher authority or review before commitment.":"Execution was not admissible at bind-time."
+ };
+ document.getElementById("payload").textContent=JSON.stringify(payload,null,2);
 }
-document.querySelectorAll("button[data-scenario]").forEach(btn=>btn.addEventListener("click",()=>setScenario(btn.dataset.scenario)));
-document.getElementById("salarySlider").addEventListener("input",e=>{state.salary=Number(e.target.value);state.scenario="manual";document.querySelectorAll("button[data-scenario]").forEach(b=>b.classList.remove("active"));render();});
-document.getElementById("authoritySwitch").addEventListener("click",()=>{state.authority=!state.authority;state.scenario="manual";document.querySelectorAll("button[data-scenario]").forEach(b=>b.classList.remove("active"));render();});
-document.getElementById("admissibilitySelect").addEventListener("change",e=>{state.admissibility=e.target.value;state.scenario="manual";document.querySelectorAll("button[data-scenario]").forEach(b=>b.classList.remove("active"));render();});
+
+document.querySelectorAll(".tab").forEach(t=>t.addEventListener("click",()=>setDomain(t.dataset.domain)));
+document.getElementById("valueSlider").addEventListener("input",e=>{state.value=Number(e.target.value);document.querySelectorAll("button.scenario").forEach(b=>b.classList.remove("active"));render();});
+document.getElementById("authoritySwitch").addEventListener("click",()=>{state.authority=!state.authority;document.querySelectorAll("button.scenario").forEach(b=>b.classList.remove("active"));render();});
+document.getElementById("admissibilitySelect").addEventListener("change",e=>{state.admissibility=e.target.value;state.event=e.target.value==="restricted" || e.target.value==="policy_exception";document.querySelectorAll("button.scenario").forEach(b=>b.classList.remove("active"));render();});
+
+buildScenarioButtons();
 render();
 </script>
 </body>
